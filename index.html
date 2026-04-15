@@ -8,7 +8,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        :root { --primary: #d4af37; }
+        :root {
+    --primary: #d4af37;
+    --secondary: #0d6efd;
+    --dark: #111;
+    --light: #f8f9fa;
+}
         body { scroll-behavior: smooth; }
 
         /* Full Cover Carousel */
@@ -71,16 +76,15 @@
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
         .gallery-item:hover img { transform: scale(1.12); }
 
-        /* Lightbox - Bigger & Clear X */
+        /* Lightbox */
         #lightbox { 
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
             background: rgba(0,0,0,0.95); z-index: 2000; align-items: center; justify-content: center; 
         }
         #lightbox img { max-width: 90%; max-height: 90%; object-fit: contain; }
         .lightbox-controls { 
-            position: absolute; top: 30px; right: 30px; 
-            color: white; font-size: 45px; font-weight: bold; 
-            cursor: pointer; z-index: 2100; 
+            position: absolute; top: 30px; right: 30px; color: white; font-size: 40px; 
+            font-weight: bold; cursor: pointer; z-index: 2100; 
         }
 
         .whatsapp-float {
@@ -139,6 +143,464 @@
     from { transform: scale(0.7); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
 }
+/* new */
+@media (max-width: 576px) {
+    h1 { font-size: 1.8rem !important; }
+    h2 { font-size: 1.5rem !important; }
+    .lead { font-size: 0.95rem; }
+    p { font-size: 0.9rem; }
+}
+
+@media (max-width: 576px) {
+    .service-card img {
+        height: 140px;
+    }
+
+    .gallery-item {
+        height: 180px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .hero-text p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+.navbar-brand {
+    font-size: 1.4rem;
+}
+
+@media (max-width: 576px) {
+    .navbar {
+        padding: 10px 15px;
+    }
+
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+}
+
+body {
+    padding-top: 55px;
+}
+
+/* ===== ADVANCED RESPONSIVENESS ===== */
+
+/* Smooth font scaling */
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+h2 { font-size: clamp(1.6rem, 4vw, 2.5rem); }
+h5 { font-size: clamp(1rem, 2.5vw, 1.3rem); }
+p  { font-size: clamp(0.9rem, 2vw, 1.1rem); }
+
+/* Better spacing scaling */
+section {
+    padding: clamp(40px, 6vw, 80px) 0;
+}
+
+/* Tablet view → 2 columns */
+@media (max-width: 992px) {
+    .col-md-4 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+/* Small phones → tighter spacing */
+@media (max-width: 576px) {
+    .hero-text {
+        width: 95%;
+    }
+
+    .carousel-item img {
+        object-position: center;
+    }
+}
+
+.card, .btn {
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.02);
+}
+@media (max-width: 768px) {
+    #whyus .col-md-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        text-align: center;
+    }
+}
+@media (max-width: 768px) {
+    #location .col-lg-5 {
+        text-align: center;
+    }
+
+    #location .col-lg-5 i {
+        display: block;
+        margin-bottom: 8px;
+    }
+}
+@media (max-width: 768px) {
+    #location .mb-4 {
+        margin-bottom: 25px;
+    }
+}
+.btn {
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* POPUP BACKGROUND */
+#successPopup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    z-index: 5000;
+}
+
+/* SHOW STATE */
+#successPopup.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* POPUP BOX */
+.popup-box {
+    background: rgba(255,255,255,0.1);
+    border-radius: 15px;
+    padding: 30px 40px;
+    text-align: center;
+    color: white;
+    backdrop-filter: blur(15px);
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+}
+
+/* ANIMATION */
+#successPopup.show .popup-box {
+    transform: scale(1);
+}
+
+/* ICON */
+.popup-box i {
+    font-size: 50px;
+    color: #28a745;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 8px 0 !important;
+    }
+
+    .navbar-brand {
+        font-size: 1.2rem !important;
+    }
+
+    .navbar-toggler {
+        transform: scale(0.8);
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-item {
+        height: 75vh;
+    }
+
+    .carousel-item img {
+        height: 75vh;
+    }
+
+    .hero-text h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-text p {
+        font-size: 0.9rem;
+    }
+}
+.carousel-item {
+    min-height: 60vh;
+}
+@media (max-width: 768px) {
+    footer .row > div {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    footer .col-md-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+/* =========================
+   MICRO INTERACTIONS
+========================= */
+
+/* Buttons feel alive */
+.btn {
+    transition: all 0.3s ease;
+}
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Navbar links smooth underline */
+.nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+}
+.nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Cards slightly zoom on hover */
+.service-card {
+    transition: all 0.4s ease;
+}
+.service-card:hover {
+    transform: scale(1.03);
+}
+
+/* Icons bounce slightly */
+i {
+    transition: transform 0.3s ease;
+}
+i:hover {
+    transform: scale(1.2);
+}
+/* =========================
+   GLASS NAVBAR ON SCROLL
+========================= */
+
+/* Default navbar (top) */
+.navbar {
+    transition: all 0.4s ease;
+}
+
+/* Glass effect when scrolling */
+.navbar.scrolled {
+    background: rgba(20, 20, 20, 0.5) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+.review-box {
+    max-width: 600px;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    transition: all 0.4s ease;
+}
+
+.review-box:hover {
+    transform: translateY(-5px);
+}
+.review-text {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* STRONG mobile override */
+@media (max-width: 576px) {
+    .review-text {
+        font-size: 0.85rem !important;
+        line-height: 1.5;
+    }
+
+    .review-box {
+        padding: 20px !important;
+    }
+
+    .review-box h6 {
+        font-size: 0.8rem !important;
+    }
+}
+@media (max-width: 576px) {
+
+    p {
+        font-size: 0.9rem !important;
+    }
+
+    .btn {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+
+    h2 {
+        font-size: 1.4rem !important;
+    }
+
+    section {
+        padding: 40px 0 !important;
+    }
+}
+.section-title {
+    margin-bottom: 6px;
+}
+
+.section-subtitle {
+    margin-bottom: 20px;
+}
+:root {
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 24px;
+    --space-6: 32px;
+    --space-7: 48px;
+    --space-8: 64px;
+}
+
+/* Section spacing (VERY IMPORTANT) */
+section {
+    padding: var(--space-8) 0;
+}
+
+/* Tight section variant (optional use later) */
+.section-tight {
+    padding: var(--space-6) 0;
+}
+
+/* Headings system */
+.section-title {
+    margin-bottom: var(--space-2);
+}
+
+.section-subtitle {
+    margin-bottom: var(--space-5);
+    color: #6c757d;
+}
+
+/* Card spacing consistency */
+.card {
+    margin-bottom: var(--space-4);
+}
+
+/* Review box spacing consistency */
+.review-box {
+    padding: var(--space-6);
+}
+@media (max-width: 576px) {
+    section {
+        padding: 48px 0;
+    }
+
+    .review-box {
+        padding: 20px;
+    }
+}
+@media (max-width: 576px) {
+    .display-3 {
+        font-size: 1.8rem !important;
+    }
+
+    .lead {
+        font-size: 0.9rem !important;
+    }
+
+    .hero-text h1 {
+        line-height: 1.2;
+    }
+}
+.hero-text p {
+    opacity: 0.9;
+}
+.btn-warning {
+    background: var(--primary);
+    border: none;
+    color: #111;
+    font-weight: 600;
+}
+
+.trust-item {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+/* Mobile optimization */
+@media (max-width: 576px) {
+    .trust-strip .container {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .trust-item {
+        font-size: 0.85rem;
+    }
+}
+
+
+.scrolling-text {
+    overflow: hidden;
+    background: #000;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.scroll-track {
+    display: flex;
+    width: max-content;
+    animation: scrollMove 20s linear infinite;
+}
+
+.scroll-content {
+    white-space: nowrap;
+    padding-right: 50px;
+}
+
+@keyframes scrollMove {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+
     </style>
 </head>
 <body>
@@ -170,7 +632,9 @@
                 <div class="hero-text">
                     <h1 class="display-3 fw-bold">LuxeThread</h1>
                     <p class="lead">Discover Your Signature Style</p>
-                    <a href="#location" class="btn btn-light btn-lg">Contact Us</a>
+                    <a href="https://wa.me/2347089743895?text=Hello%2C%20I%27m%20interested%20in%20your%20fashion%20services.%20My%20name%20is..." class="btn btn-warning btn-lg">
+    Book Now on WhatsApp
+</a>
                 </div>
             </div>
             <div class="carousel-item">
@@ -178,7 +642,9 @@
                 <div class="hero-text">
                     <h1 class="display-3 fw-bold">Trendy • Timeless • You</h1>
                     <p class="lead mb-3">Fashion that speaks to your personality</p>
-                    <a href="#location" class="btn btn-light btn-lg">Contact Us</a>
+                    <a href="https://wa.me/2347089743895?text=Hello%2C%20I%27m%20interested%20in%20your%20fashion%20services.%20My%20name%20is..." class="btn btn-warning btn-lg">
+    Book Now on WhatsApp
+</a>
                 </div>
             </div>
             <div class="carousel-item">
@@ -186,17 +652,30 @@
                 <div class="hero-text">
                     <h1 class="display-3 fw-bold">Premium Fashion Store</h1>
                     <p class="lead mb-3">Top-quality fashion for every occasion</p>
-                    <a href="#location" class="btn btn-light btn-lg">Contact Us</a>
+                    <a href="https://wa.me/2347089743895?text=Hello%2C%20I%27m%20interested%20in%20your%20fashion%20services.%20My%20name%20is..." class="btn btn-warning btn-lg">
+    Check Availability on WhatsApp
+</a>
                 </div>
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#home" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#home" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-        </button>
     </div>
+
+    <div class="scrolling-text">
+    <div class="scroll-track">
+        <div class="scroll-content">
+            Latest Trends • Fashion • Book Your Consultation Today • Premium Style • Top-quality fashion for every occasion •
+        </div>
+        <div class="scroll-content">
+            Latest Trends • Fashion • Book Your Consultation Today • Premium Style • Top-quality fashion for every occasion •
+        </div>
+        <div class="scroll-content">
+            Latest Trends • Fashion • Book Your Consultation Today • Premium Style • Top-quality fashion for every occasion •
+        </div>
+        <div class="scroll-content">
+            Latest Trends • Fashion • Book Your Consultation Today • Premium Style • Top-quality fashion for every occasion •
+        </div>
+    </div>
+</div>
 
     <!-- About -->
     <section id="about" class="py-5 bg-light fade-in">
@@ -207,7 +686,7 @@
                     <p class="lead">We curate the latest trends in fashion with premium quality and affordable prices. From everyday wear to statement pieces, we help you express your unique style.</p>
                 </div>
                 <div class="col-lg-6">
-                    <img src="https://res.cloudinary.com/fortyfournorth/image/upload/v1710256288/The%20Look%20Company%20%28Staging%29/j2zi31lqofw1abqfrjux.jpg" class="img-fluid rounded shadow" alt="Store Interior">
+                    <img src="https://res.cloudinary.com/fortyfournorth/image/upload/v1710256288/The%20Look%20Company%20%28Staging%29/j2zi31lqofw1abqfrjux.jpg" loading="lazy" class="img-fluid rounded shadow" alt="Store Interior">
                 </div>
             </div>
         </div>
@@ -216,59 +695,72 @@
     <!-- Collections -->
     <section id="collections" class="py-5 fade-in">
         <div class="container">
-            <h2 class="text-center display-5 fw-bold mb-5">Our Collections</h2>
+            <h2 class="text-center display-5 fw-bold section-title">Our Collections</h2>
+            <p class="text-center section-subtitle">Discover our range of fashionable pieces</p>
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="card service-card h-100 shadow-sm">
-                        <img src="https://i.etsystatic.com/24512336/r/il/91d713/2502167519/il_570xN.2502167519_hfjx.jpg" class="card-img-top" alt="Women's Fashion">
+                        <img src="https://i.etsystatic.com/24512336/r/il/91d713/2502167519/il_570xN.2502167519_hfjx.jpg" loading="lazy" class="card-img-top" alt="Women's Fashion">
                         <div class="card-body text-center">
                             <h5>Women's Wear</h5>
                             <p class="text-muted">Dresses, tops, jeans &amp; elegant outfits</p>
+                            <a href="https://wa.me/2347089743895?text=Hello,%20I%20want%20Classic%20Women%20wear"
+class="btn btn-warning btn-sm">Book a Consultation</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card service-card h-100 shadow-sm">
-                        <img src="https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/37/428053/1.jpg?1857" class="card-img-top" alt="Men's Fashion">
+                        <img src="https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/37/428053/1.jpg?1857" loading="lazy" class="card-img-top" alt="Men's Fashion">
                         <div class="card-body text-center">
                             <h5>Men's Wear</h5>
                             <p class="text-muted">Shirts, trousers, jackets &amp; casuals</p>
+                            <a href="https://wa.me/2347089743895?text=Hello,%20I%20want%20Classic%20for%20men"
+class="btn btn-warning btn-sm">Book a Consultation</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card service-card h-100 shadow-sm">
-                        <img src="https://i.pinimg.com/736x/49/06/d6/4906d655ec5d81b10e659166b1e586c1.jpg" class="card-img-top" alt="Shoes">
+                        <img src="https://i.pinimg.com/736x/49/06/d6/4906d655ec5d81b10e659166b1e586c1.jpg" loading="lazy" class="card-img-top" alt="Shoes">
                         <div class="card-body text-center">
                             <h5>Footwear</h5>
                             <p class="text-muted">Sneakers, heels, boots &amp; sandals</p>
+                            <a href="https://wa.me/2347089743895?text=Hello,%20I%20want%20Classic%20Shoes"
+class="btn btn-warning btn-sm">Book a Consultation</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card service-card h-100 shadow-sm">
-                        <img src="https://m.media-amazon.com/images/I/71FRLURkbpL._AC_UY1000_.jpg" class="card-img-top" alt="Bags">
+                        <img src="https://m.media-amazon.com/images/I/71FRLURkbpL._AC_UY1000_.jpg" loading="lazy" class="card-img-top" alt="Bags">
                         <div class="card-body text-center">
                             <h5>Bags &amp; Accessories</h5>
                             <p class="text-muted">Handbags, wallets, belts &amp; more</p>
+                            <a href="https://wa.me/2347089743895?text=Hello,%20I%20want%20Classic%20Bags%20and%20Accessories"
+class="btn btn-warning btn-sm">Book a Consultation</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card service-card h-100 shadow-sm">
-                        <img src="https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/93/0741202/1.jpg?8232" class="card-img-top" alt="Jewelry">
+                        <img src="https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/93/0741202/1.jpg?8232" loading="lazy" class="card-img-top" alt="Jewelry">
                         <div class="card-body text-center">
                             <h5>Jewelry</h5>
                             <p class="text-muted">Necklaces, earrings, rings &amp; bracelets</p>
+                            <a href="https://wa.me/2347089743895?text=Hello,%20I%20want%20Classic%20jewelry"
+class="btn btn-warning btn-sm">Book a Consultation</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card service-card h-100 shadow-sm">
-                        <img src="https://ae01.alicdn.com/kf/S358b6a637b134a648219f26448d9ea91w.jpg" class="card-img-top" alt="Kids">
+                        <img src="https://ae01.alicdn.com/kf/S358b6a637b134a648219f26448d9ea91w.jpg" loading="lazy" class="card-img-top" alt="Kids">
                         <div class="card-body text-center">
                             <h5>Kids &amp; Teens</h5>
                             <p class="text-muted">Stylish clothing for the little ones</p>
+                            <a href="https://wa.me/2347089743895?text=Hello,%20I%20want%20Classic%20for%20my%20kids"
+class="btn btn-warning btn-sm">Book a Consultation</a>
                         </div>
                     </div>
                 </div>
@@ -279,7 +771,8 @@
     <!-- Why Choose Us -->
     <section id="whyus" class="py-5 bg-light fade-in">
         <div class="container">
-            <h2 class="text-center display-5 fw-bold mb-5">Why Choose LuxeThread</h2>
+            <h2 class="text-center display-5 fw-bold section-title">Why Choose LuxeThread</h2>
+            <p class="text-center section-subtitle">Discover what makes us the best choice for your fashion needs</p>
             <div class="row g-4 text-center">
                 <div class="col-md-4"><div class="p-4"><i class="fas fa-star fa-3x text-warning mb-3"></i><h5>Latest Trends</h5></div></div>
                 <div class="col-md-4"><div class="p-4"><i class="fas fa-truck fa-3x text-success mb-3"></i><h5>Fast Delivery</h5></div></div>
@@ -291,30 +784,66 @@
     <!-- Gallery -->
     <section id="gallery" class="py-5 fade-in">
         <div class="container">
-            <h2 class="text-center display-5 fw-bold mb-5">Our Gallery</h2>
+            <h2 class="text-center display-5 fw-bold section-title">Our Gallery</h2>
+            <p class="text-center section-subtitle">See some of our best fashion pieces</p>
             <div class="row g-4">
-                <div class="col-lg-4 col-md-6 gallery-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTORh4Ljs61O4aKNG0wlNBAhzyWEDyCEbhecw&s" alt="Fashion" onclick="openLightbox(0)"></div>
-                <div class="col-lg-4 col-md-6 gallery-item"><img src="https://www.cumolondon.com/cdn/shop/files/CUMO179.jpg?crop=region&crop_height=4560&crop_left=296&crop_top=0&crop_width=3055&v=1739558465&width=3648" alt="Fashion" onclick="openLightbox(1)"></div>
-                <div class="col-lg-4 col-md-6 gallery-item"><img src="https://otunbastore.com/cdn/shop/files/otunba-african-mens-kaftan-custom-senator-wear-black-style-photo-128.jpg?v=1775772199&width=1445" alt="Fashion" onclick="openLightbox(2)"></div>
-                <div class="col-lg-4 col-md-6 gallery-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgcMq1599cLXJkos02lD_yfOSpvIcV8t7CAA&s" alt="Fashion" onclick="openLightbox(3)"></div>
-                <div class="col-lg-4 col-md-6 gallery-item"><img src="https://www.mgkente.com/cdn/shop/files/102-bd03b102-ffb6-454e-8abb-9af1d52f510a.png?v=1696764221&width=533" alt="Fashion" onclick="openLightbox(4)"></div>
-                <div class="col-lg-4 col-md-6 gallery-item"><img src="https://www.mgkente.com/cdn/shop/collections/92.jpg?v=1602432213" alt="Fashion" onclick="openLightbox(5)"></div>
+                <div class="col-lg-4 col-md-6 gallery-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTORh4Ljs61O4aKNG0wlNBAhzyWEDyCEbhecw&s" loading="lazy" alt="Fashion" onclick="openLightbox(0)"></div>
+                <div class="col-lg-4 col-md-6 gallery-item"><img src="https://www.cumolondon.com/cdn/shop/files/CUMO179.jpg?crop=region&crop_height=4560&crop_left=296&crop_top=0&crop_width=3055&v=1739558465&width=3648" loading="lazy" alt="Fashion" onclick="openLightbox(1)"></div>
+                <div class="col-lg-4 col-md-6 gallery-item"><img src="https://otunbastore.com/cdn/shop/files/otunba-african-mens-kaftan-custom-senator-wear-black-style-photo-128.jpg?v=1775772199&width=1445" loading="lazy" alt="Fashion" onclick="openLightbox(2)"></div>
+                <div class="col-lg-4 col-md-6 gallery-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgcMq1599cLXJkos02lD_yfOSpvIcV8t7CAA&s" loading="lazy" alt="Fashion" onclick="openLightbox(3)"></div>
+                <div class="col-lg-4 col-md-6 gallery-item"><img src="https://www.mgkente.com/cdn/shop/files/102-bd03b102-ffb6-454e-8abb-9af1d52f510a.png?v=1696764221&width=533" loading="lazy" alt="Fashion" onclick="openLightbox(4)"></div>
+                <div class="col-lg-4 col-md-6 gallery-item"><img src="https://www.mgkente.com/cdn/shop/collections/92.jpg?v=1602432213" loading="lazy" alt="Fashion" onclick="openLightbox(5)"></div>
             </div>
         </div>
     </section>
+
+    <!-- REVIEWS -->
+<section id="reviews" class="py-5 bg-light fade-in">
+    <div class="container text-center">
+        <h2 class="text-center display-5 fw-bold section-title">
+            What Our Clients Say
+        </h2>
+
+        <p class="text-muted mb-3">
+            Trusted by 100+ happy beauty clients
+        </p>
+
+        <div class="review-box mx-auto p-4 shadow rounded">
+            <div class="mb-3">
+                <img id="review-img" src="https://i.pravatar.cc/80?img=1" 
+                     style="width:60px; height:60px; border-radius:50%; object-fit:cover;">
+            </div>
+
+            <p class="review-text">
+                “Absolutely amazing service! My apartment has never looked better!”
+            </p>
+
+            <!-- ⭐⭐⭐⭐⭐ -->
+            <div class="text-warning mb-2">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+
+            <h6 class="fw-bold mb-0">— Emily Carter</h6>
+
+        </div>
+    </div>
+</section>
 
     <!-- Lightbox -->
     <div id="lightbox">
         <span class="lightbox-controls" onclick="closeLightbox()">×</span>
         <img id="lightbox-img" src="" alt="">
-        <button onclick="prevImage()" class="btn btn-light position-absolute start-0 top-50">←</button>
-        <button onclick="nextImage()" class="btn btn-light position-absolute end-0 top-50">→</button>
     </div>
 
     <!-- Location & Contact -->
     <section id="location" class="py-5 fade-in">
         <div class="container">
-            <h2 class="text-center display-5 fw-bold mb-5">Our Location</h2>
+            <h2 class="text-center display-5 fw-bold section-title">Our Location</h2>
+        <p class="text-center section-subtitle">Visit our store or get in touch with us!</p>
             <div class="row g-5 align-items-start">
                 <div class="col-lg-5">
                     <h4 class="fw-bold mb-4">Get In Touch</h4>
@@ -344,7 +873,8 @@
     <!-- CONTACT FORM SECTION -->
 <section id="contact" class="py-5 bg-light fade-in">
     <div class="container">
-        <h2 class="text-center display-5 fw-bold mb-5">GET IN TOUCH</h2>
+        <h2 class="text-center display-5 fw-bold section-title">GET IN TOUCH</h2>
+        <p class="text-center section-subtitle">Have questions or want to book a consultation? Reach out to us!</p>
 
         <div class="row justify-content-center">
             <div class="col-lg-6">
@@ -363,7 +893,7 @@
                         <textarea name="message" class="form-control" rows="5" placeholder="Book a Fashion Consultation" required></textarea>
                     </div>
 
-                    <button type="submit" class="btn btn-dark w-100">Send Message</button>
+                    <button type="submit" class="btn btn-dark w-100">Book Consultation</button>
 
                 </form>
                 <div class="text-center mt-5">
@@ -429,31 +959,108 @@
 
         // Lightbox
         let currentIndex = 0;
-        const images = document.querySelectorAll('.gallery-item img');
+const images = document.querySelectorAll('.gallery-item img');
 
-        function openLightbox(index) {
-            currentIndex = index;
-            document.getElementById('lightbox').style.display = 'flex';
-            document.getElementById('lightbox-img').src = images[index].src;
-        }
+let isZoomed = false;
+let lastTap = 0;
 
-        function closeLightbox() {
-            document.getElementById('lightbox').style.display = 'none';
-        }
+function openLightbox(index) {
+    currentIndex = index;
+    document.getElementById('lightbox').style.display = 'flex';
+    isZoomed = false;
+    updateLightbox();
+}
 
-        function nextImage() {
-            currentIndex = (currentIndex + 1) % images.length;
-            document.getElementById('lightbox-img').src = images[currentIndex].src;
-        }
+function updateLightbox() {
+    const img = document.getElementById('lightbox-img');
+    img.src = images[currentIndex].src;
+    img.style.transform = "scale(1)";
 
-        function prevImage() {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            document.getElementById('lightbox-img').src = images[currentIndex].src;
-        }
+    // image counter
+    document.getElementById('imageCounter').innerText =
+        `${currentIndex + 1} / ${images.length}`;
+}
 
-        document.getElementById('lightbox').addEventListener('click', function(e) {
-            if (e.target.id === 'lightbox') closeLightbox();
-        });
+function closeLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+}
+
+/* NEXT / PREV */
+function nextImage() {
+    currentIndex = (currentIndex + 1) % images.length;
+    updateLightbox();
+}
+
+function prevImage() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    updateLightbox();
+}
+
+/* KEYBOARD */
+document.addEventListener('keydown', (e) => {
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox.style.display === 'flex') {
+        if (e.key === 'ArrowRight') nextImage();
+        if (e.key === 'ArrowLeft') prevImage();
+        if (e.key === 'Escape') closeLightbox();
+    }
+});
+
+/* SWIPE (mobile) */
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.getElementById('lightbox').addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+document.getElementById('lightbox').addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    let diff = touchStartX - touchEndX;
+
+    if (Math.abs(diff) > 50 && !isZoomed) {
+        if (diff > 0) nextImage();
+        else prevImage();
+    }
+}
+
+/* =========================
+   DOUBLE TAP / DOUBLE CLICK ZOOM
+========================= */
+
+const lightboxImg = document.getElementById('lightbox-img');
+
+/* mobile double tap */
+lightboxImg.addEventListener('touchend', function () {
+    const now = new Date().getTime();
+    const timeSince = now - lastTap;
+
+    if (timeSince < 300 && timeSince > 0) {
+        toggleZoom();
+    }
+    lastTap = now;
+});
+
+/* desktop double click */
+lightboxImg.addEventListener('dblclick', function () {
+    toggleZoom();
+});
+
+function toggleZoom() {
+    if (!isZoomed) {
+        lightboxImg.style.transform = "scale(2)";
+        lightboxImg.style.cursor = "zoom-out";
+        isZoomed = true;
+    } else {
+        lightboxImg.style.transform = "scale(1)";
+        lightboxImg.style.cursor = "zoom-in";
+        isZoomed = false;
+    }
+}
     </script>
 
     <script>
@@ -470,6 +1077,7 @@ form.addEventListener("submit", function(e) {
     .then(response => {
         if (response.ok) {
             document.getElementById("successPopup").style.display = "flex";
+            showPopup(); // ✅ THIS is where it goes
             form.reset(); // reset fields
         } else {
             alert("Something went wrong. Please try again.");
@@ -485,7 +1093,104 @@ function closePopup() {
 }
 </script>
 
-    <!-- Success Popup -->
+<!-- new -->
+<script>
+document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        const navbar = document.querySelector('.navbar-collapse');
+        const bsCollapse = new bootstrap.Collapse(navbar, {
+            toggle: false
+        });
+        bsCollapse.hide();
+    });
+});
+
+function showPopup() {
+    const popup = document.getElementById('successPopup');
+    popup.classList.add('show');
+
+    setTimeout(() => {
+        popup.classList.remove('show');
+    }, 1000);
+}
+/* =========================
+   NAVBAR SCROLL EFFECT
+========================= */
+
+const navbar = document.querySelector('.navbar');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
+const reviews = [
+    {
+        text: "Amazing experience! My hair has never looked better.",
+        name: "— Sarah Johnson",
+        img: "https://i.pravatar.cc/80?img=1"
+    },
+    {
+        text: "Best salon I've ever been to. Highly recommend!",
+        name: "— Michael Lee",
+        img: "https://i.pravatar.cc/80?img=2"
+    },
+    {
+        text: "Great service and beautiful location. Will come again!",
+        name: "— Ada Obi",
+        img: "https://i.pravatar.cc/80?img=3"
+    },
+    {
+        text: "Professional staff and relaxing atmosphere. Loved it!",
+        name: "— David Smith",
+        img: "https://i.pravatar.cc/80?img=4"
+    },
+    {
+        text: "Exceptional results and outstanding customer service!",
+        name: "— Chioma Eze",
+        img: "https://i.pravatar.cc/80?img=5"
+    }
+];
+
+let reviewIndex = 0;
+
+setInterval(() => {
+    reviewIndex = (reviewIndex + 1) % reviews.length;
+
+    document.querySelector(".review-text").innerText = `"${reviews[reviewIndex].text}"`;
+    document.querySelector(".review-box h6").innerText = reviews[reviewIndex].name;
+    document.getElementById("review-img").src = reviews[reviewIndex].img;
+
+}, 4000);
+
+
+
+</script>
+
+<script>
+    // backto top button
+    let backToTopBtn = document.getElementById("backToTopBtn");
+
+window.onscroll = function() {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        backToTopBtn.style.display = "block";
+    } else {
+        backToTopBtn.style.display = "none";
+    }
+};
+
+backToTopBtn.addEventListener("click", function() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+</script>
+
+<!-- Success Popup -->
 <div id="successPopup">
     <div class="popup-box">
         <i class="fas fa-check-circle"></i>
@@ -493,6 +1198,11 @@ function closePopup() {
         <p>We’ll get back to you shortly.</p>
         <button onclick="closePopup()">OK</button>
     </div>
-</div>
+    
+    
+    <button id="scrollTopBtn">
+    ↑
+</button>
+
 </body>
 </html>
