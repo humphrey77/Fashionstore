@@ -7,28 +7,52 @@
     <title>LuxeThread Fashion Store | Discover Your Style</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-    --primary: #d4af37;
-    --secondary: #0d6efd;
-    --dark: #111;
-    --light: #f8f9fa;
+    --primary: #c19a6b;   /* soft gold */
+    --secondary: #000000; /* black */
+    --dark: #0a0a0a;
+    --light: #f5f5f5;
 }
         body { scroll-behavior: smooth; }
+        body {
+    font-family: 'Poppins', sans-serif;
+}
 
-        /* Full Cover Carousel */
-        .carousel-item { height: 100vh; position: relative; }
-        .carousel-item img { 
-            height: 100vh; width: 100%; object-fit: cover; object-position: center; 
-        }
-        .carousel-item::before { 
-            content: ""; position: absolute; top: 0; left: 0; 
-            width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1; 
-        }
-        .hero-text { 
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
-            color: white; text-align: center; z-index: 2; width: 90%; max-width: 800px; 
-        }
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+}
+.navbar-brand {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 1px;
+}
+
+        
+        /* HERO */
+        .hero-section {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url('https://images.unsplash.com/photo-1595665593673-bf1ad72905c0?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2xvdGhpbmclMjBzdG9yZXxlbnwwfHwwfHx8MA%3D%3D');
+    background-size: cover;
+    background-position: center;
+}
+@media (max-width: 768px) {
+    .hero-section {
+        height: 75vh;
+    }
+}
+.hero-section {
+    min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 70vh;
+        padding: 60px 0;
+    }
+}
+
 
         /* ULTRA CLEAN MOBILE TOGGLER - ONLY 3 STRAIGHT LINES */
         .navbar-toggler {
@@ -67,9 +91,27 @@
         .fade-in.visible { opacity: 1; transform: translateY(0); }
 
         /* Service Cards */
-        .service-card { transition: all 0.4s ease; overflow: hidden; }
-        .service-card:hover { transform: translateY(-12px); box-shadow: 0 15px 30px rgba(212, 175, 55, 0.25); }
-        .service-card img { height: 200px; object-fit: cover; width: 100%; }
+        .service-card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    background: #fff;
+    transition: all 0.4s ease;
+}
+
+.service-card img {
+    height: 240px;
+    object-fit: cover;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.service-card .card-body {
+    padding: 20px;
+}
 
         /* Gallery */
         .gallery-item { overflow: hidden; border-radius: 12px; height: 260px; cursor: pointer; }
@@ -270,23 +312,6 @@ section {
     box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
-/* POPUP BACKGROUND */
-#successPopup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(8px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.4s ease;
-    z-index: 5000;
-}
 
 /* SHOW STATE */
 #successPopup.show {
@@ -294,28 +319,10 @@ section {
     visibility: visible;
 }
 
-/* POPUP BOX */
-.popup-box {
-    background: rgba(255,255,255,0.1);
-    border-radius: 15px;
-    padding: 30px 40px;
-    text-align: center;
-    color: white;
-    backdrop-filter: blur(15px);
-    transform: scale(0.8);
-    transition: all 0.3s ease;
-}
 
 /* ANIMATION */
 #successPopup.show .popup-box {
     transform: scale(1);
-}
-
-/* ICON */
-.popup-box i {
-    font-size: 50px;
-    color: #28a745;
-    margin-bottom: 15px;
 }
 
 @media (max-width: 768px) {
@@ -421,25 +428,28 @@ i:hover {
 
 /* Glass effect when scrolling */
 .navbar.scrolled {
-    background: rgba(20, 20, 20, 0.5) !important;
+    background: rgba(10, 10, 10, 0.7) !important;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     box-shadow: 0 4px 20px rgba(0,0,0,0.2);
 }
 .review-box {
     max-width: 600px;
-    background: rgba(255,255,255,0.85);
-    backdrop-filter: blur(10px);
-    border-radius: 15px;
-    transition: all 0.4s ease;
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid #eee;
+    transition: all 0.3s ease;
 }
 
 .review-box:hover {
     transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
+
 .review-text {
-    font-size: 1rem;
-    line-height: 1.6;
+    font-size: 0.95rem;
+    color: #444;
 }
 
 /* STRONG mobile override */
@@ -551,8 +561,7 @@ section {
 .btn-warning {
     background: var(--primary);
     border: none;
-    color: #111;
-    font-weight: 600;
+    color: #000;
 }
 
 .trust-item {
@@ -574,10 +583,17 @@ section {
 
 
 .scrolling-text {
-    overflow: hidden;
+    padding: 6px 0;
+    font-size: 0.85rem;
     background: #000;
     color: #fff;
-    padding: 10px 0;
+}
+
+@media (max-width: 576px) {
+    .scrolling-text {
+        padding: 4px 0;
+        font-size: 0.75rem;
+    }
 }
 
 .scroll-track {
@@ -599,7 +615,191 @@ section {
         transform: translateX(-50%);
     }
 }
+.category-box {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    height: 350px;
+}
 
+.category-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.category-box:hover img {
+    transform: scale(1.1);
+}
+
+.category-box .overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    text-align: center;
+}
+.sale-banner {
+    height: 50vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b');
+    background-size: cover;
+    background-position: center;
+}
+@media (max-width: 576px) {
+    .sale-banner {
+        height: 25vh;
+    }
+}
+
+@media (max-width: 576px) {
+    .category-box {
+        height: 220px;
+    }
+
+    .category-box h4 {
+        font-size: 1rem;
+    }
+}
+@media (max-width: 576px) {
+    .hero-section h1 {
+        font-size: 1.8rem !important;
+    }
+
+    .hero-section p {
+        font-size: 0.9rem;
+    }
+}
+@media (max-width: 576px) {
+    #collections .row {
+        gap: 10px;
+    }
+
+    .card-body {
+        padding: 15px;
+    }
+}
+@media (max-width: 576px) {
+    .btn {
+        font-size: 0.8rem;
+        padding: 8px 14px;
+    }
+}
+body {
+    overflow-x: hidden;
+}
+section {
+    padding: 70px 0;
+}
+@media (max-width: 576px) {
+    .hero-section {
+        min-height: auto;
+        padding: 60px 0;
+    }
+}
+.carousel-item {
+    height: 90vh; /* desktop */
+}
+
+.carousel-item img {
+    height: 90vh;
+}
+
+/* 🔥 MOBILE FIX */
+@media (max-width: 768px) {
+    .carousel-item {
+        height: 65vh;
+    }
+
+    .carousel-item img {
+        height: 65vh;
+    }
+}
+.category-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    height: 280px;
+}
+
+.category-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.category-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+
+/* 🔥 MOBILE FIX */
+@media (max-width: 768px) {
+    .category-card {
+        height: 200px;
+    }
+}
+.cta-section {
+    padding: 60px 0;
+}
+
+@media (max-width: 576px) {
+    .cta-section {
+        padding: 40px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .cta-section {
+        padding: 50px 0;
+    }
+
+    .cta-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .cta-section p {
+        font-size: 0.9rem;
+    }
+}
+@media (max-width: 768px) {
+    #whyus .col-md-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+}
+@media (max-width: 768px) {
+    #whyus .row {
+        flex-direction: column;
+    }
+
+    #whyus .col-md-4 {
+        max-width: 100%;
+        flex: 100%;
+        margin-bottom: 20px;
+    }
+}
+@media (max-width: 576px) {
+    .bg-dark.text-white p {
+        font-size: 0.8rem;
+        margin-bottom: 0;
+    }
+}
+@media (max-width: 576px) {
+    .category-box {
+        height: 180px;
+    }
+
+    .col-md-6 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
 
     </style>
 </head>
@@ -624,41 +824,34 @@ section {
         </div>
     </nav>
 
-    <!-- HERO CAROUSEL -->
-    <div id="home" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="https://www.nairaland.com/attachments/16036757_23655773016834566785164162630572504949963526n_jpegccd4bc7530937cd654dbfc750995e229" alt="Fashion">
-                <div class="hero-text">
-                    <h1 class="display-3 fw-bold">LuxeThread</h1>
-                    <p class="lead">Discover Your Signature Style</p>
-                    <a href="https://wa.me/2347089743895?text=Hello%2C%20I%27m%20interested%20in%20your%20fashion%20services.%20My%20name%20is..." class="btn btn-warning btn-lg">
-    Book Now on WhatsApp
-</a>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="https://i.pinimg.com/236x/d8/3c/c4/d83cc4b0971e2e35e5bac8e8a86a96ca.jpg" alt="Fashion">
-                <div class="hero-text">
-                    <h1 class="display-3 fw-bold">Trendy • Timeless • You</h1>
-                    <p class="lead mb-3">Fashion that speaks to your personality</p>
-                    <a href="https://wa.me/2347089743895?text=Hello%2C%20I%27m%20interested%20in%20your%20fashion%20services.%20My%20name%20is..." class="btn btn-warning btn-lg">
-    Book Now on WhatsApp
-</a>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="https://dejiandkola.com/wp-content/uploads/2021/06/206576924_398169798163347_8860564970867816235_n-2.jpg" alt="Fashion">
-                <div class="hero-text">
-                    <h1 class="display-3 fw-bold">Premium Fashion Store</h1>
-                    <p class="lead mb-3">Top-quality fashion for every occasion</p>
-                    <a href="https://wa.me/2347089743895?text=Hello%2C%20I%27m%20interested%20in%20your%20fashion%20services.%20My%20name%20is..." class="btn btn-warning btn-lg">
-    Check Availability on WhatsApp
-</a>
-                </div>
-            </div>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero-section d-flex align-items-center text-white">
+    <div class="container text-center">
+        <h1 class="display-2 fw-bold mb-3">LuxeThread</h1>
+        <p class="lead mb-4">Wear Confidence. Define Your Style.</p>
+
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <a href="https://wa.me/2347089743895?text=Hello%20I'm%20interested%20in%20your%20fashion%20store"
+               class="btn btn-warning btn-lg px-4">
+               Shop via WhatsApp
+            </a>
+
+            <a href="#collections" class="btn btn-outline-light btn-lg px-4">
+               Explore Collection
+            </a>
         </div>
     </div>
+</section>
+
+
+<section class="bg-dark text-white text-center py-2">
+    <div class="container">
+        <p class="mb-0">
+            🔥 Trending Now — Summer Fits • Streetwear • Luxury Pieces • New Arrivals
+        </p>
+    </div>
+</section>
 
     <div class="scrolling-text">
     <div class="scroll-track">
@@ -676,6 +869,48 @@ section {
         </div>
     </div>
 </div>
+
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row g-4">
+            <!-- WOMEN -->
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="category-box">
+                    <img src="https://i.pinimg.com/originals/97/e6/f8/97e6f81b0015cadf08143a7735e1d997.jpg">
+                    <div class="overlay">
+                        <h4>Men</h4>
+                        <a href="#collections" class="btn btn-warning btn-sm">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WOMEN -->
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="category-box">
+                    <img src="https://i.pinimg.com/736x/cb/3d/ef/cb3defb409e4c9a5ba6e1ac4152c9da5.jpg">
+                    <div class="overlay">
+                        <h4>Women</h4>
+                        <a href="#collections" class="btn btn-warning btn-sm">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CHILDREN -->
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="category-box">
+                    <img src="https://www.kaybeefashionstyles.com/wp-content/uploads/2023/12/IMG-20231218-WA0004.jpg">
+                    <div class="overlay">
+                        <h4>Children</h4>
+                        <a href="#collections" class="btn btn-warning btn-sm">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
 
     <!-- About -->
     <section id="about" class="py-5 bg-light fade-in">
@@ -698,88 +933,172 @@ section {
             <h2 class="text-center display-5 fw-bold section-title">Our Collections</h2>
             <p class="text-center section-subtitle">Discover our range of fashionable pieces</p>
             <div class="row g-4">
-                <div class="col-md-4">
+                <div class="col-lg-3 col-md-6">
                     <div class="card service-card h-100 shadow-sm">
-                        <img src="https://i.etsystatic.com/24512336/r/il/91d713/2502167519/il_570xN.2502167519_hfjx.jpg" loading="lazy" class="card-img-top" alt="Women's Fashion">
+                        <img src="https://i.etsystatic.com/24512336/r/il/91d713/2502167519/il_570xN.2502167519_hfjx.jpg" loading="lazy" class="card-img-top" alt="Senator Wears">
                         <div class="card-body text-center">
-                            <h5>Women's Wear</h5>
-                            <p class="text-muted">Dresses, tops, jeans &amp; elegant outfits</p>
-                            <a href="https://wa.me/2347089743895?text=Hello,%20I%20want%20Classic%20Women%20wear"
-class="btn btn-warning btn-sm">Book a Consultation</a>
-                        </div>
+    <h5>Senator Wears</h5>
+    <p class="text-muted">₦30k – ₦80k (Depending on design)</p>
+
+    <a href="https://wa.me/2347089743895?text=Hello%2C%20I%20want%20to%20book%20a%20fashion%20consultation%20for%20this%20outfit"
+   class="btn btn-dark btn-sm">
+   Book Consultation
+</a>
+</div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-lg-3 col-md-6">
                     <div class="card service-card h-100 shadow-sm">
-                        <img src="https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/37/428053/1.jpg?1857" loading="lazy" class="card-img-top" alt="Men's Fashion">
+                        <img src="https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/37/428053/1.jpg?1857" loading="lazy" class="card-img-top" alt="Ankara Wears">
                         <div class="card-body text-center">
-                            <h5>Men's Wear</h5>
-                            <p class="text-muted">Shirts, trousers, jackets &amp; casuals</p>
-                            <a href="https://wa.me/2347089743895?text=Hello,%20I%20want%20Classic%20for%20men"
-class="btn btn-warning btn-sm">Book a Consultation</a>
-                        </div>
+    <h5>Ankara Wears</h5>
+    <p class="text-muted">₦30k – ₦80k (Depending on design)</p>
+
+    <a href="https://wa.me/2347089743895?text=Hello%2C%20I%20want%20to%20book%20a%20fashion%20consultation%20for%20this%20outfit"
+   class="btn btn-dark btn-sm">
+   Book Consultation
+</a>
+</div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-lg-3 col-md-6">
                     <div class="card service-card h-100 shadow-sm">
-                        <img src="https://i.pinimg.com/736x/49/06/d6/4906d655ec5d81b10e659166b1e586c1.jpg" loading="lazy" class="card-img-top" alt="Shoes">
+                        <img src="https://i.pinimg.com/736x/49/06/d6/4906d655ec5d81b10e659166b1e586c1.jpg" loading="lazy" class="card-img-top" alt="Danshiki Wears">
                         <div class="card-body text-center">
-                            <h5>Footwear</h5>
-                            <p class="text-muted">Sneakers, heels, boots &amp; sandals</p>
-                            <a href="https://wa.me/2347089743895?text=Hello,%20I%20want%20Classic%20Shoes"
-class="btn btn-warning btn-sm">Book a Consultation</a>
-                        </div>
+    <h5>Danshiki Wears</h5>
+    <p class="text-muted">₦30k – ₦80k (Depending on design)</p>
+
+    <a href="https://wa.me/2347089743895?text=Hello%2C%20I%20want%20to%20book%20a%20fashion%20consultation%20for%20this%20outfit"
+   class="btn btn-dark btn-sm">
+   Book Consultation
+</a>
+</div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-lg-3 col-md-6">
                     <div class="card service-card h-100 shadow-sm">
-                        <img src="https://m.media-amazon.com/images/I/71FRLURkbpL._AC_UY1000_.jpg" loading="lazy" class="card-img-top" alt="Bags">
+                        <img src="https://m.media-amazon.com/images/I/71FRLURkbpL._AC_UY1000_.jpg" loading="lazy" class="card-img-top" alt="Agbada Wears">
                         <div class="card-body text-center">
-                            <h5>Bags &amp; Accessories</h5>
-                            <p class="text-muted">Handbags, wallets, belts &amp; more</p>
-                            <a href="https://wa.me/2347089743895?text=Hello,%20I%20want%20Classic%20Bags%20and%20Accessories"
-class="btn btn-warning btn-sm">Book a Consultation</a>
-                        </div>
+    <h5>Agbada</h5>
+    <p class="text-muted">₦30k – ₦80k (Depending on design)</p>
+
+    <a href="https://wa.me/2347089743895?text=Hello%2C%20I%20want%20to%20book%20a%20fashion%20consultation%20for%20this%20outfit"
+   class="btn btn-dark btn-sm">
+   Book Consultation
+</a>
+</div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-lg-3 col-md-6">
                     <div class="card service-card h-100 shadow-sm">
-                        <img src="https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/93/0741202/1.jpg?8232" loading="lazy" class="card-img-top" alt="Jewelry">
+                        <img src="https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/93/0741202/1.jpg?8232" loading="lazy" class="card-img-top" alt="Suits">
                         <div class="card-body text-center">
-                            <h5>Jewelry</h5>
-                            <p class="text-muted">Necklaces, earrings, rings &amp; bracelets</p>
-                            <a href="https://wa.me/2347089743895?text=Hello,%20I%20want%20Classic%20jewelry"
-class="btn btn-warning btn-sm">Book a Consultation</a>
-                        </div>
+    <h5>Suits</h5>
+    <p class="text-muted">₦30k – ₦80k (Depending on design)</p>
+
+    <a href="https://wa.me/2347089743895?text=Hello%2C%20I%20want%20to%20book%20a%20fashion%20consultation%20for%20this%20outfit"
+   class="btn btn-dark btn-sm">
+   Book Consultation
+</a>
+</div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="card service-card h-100 shadow-sm">
+                        <img src="https://i0.wp.com/clipkulture.com/wp-content/uploads/2019/08/rmscr-1564930977n8gk4.jpg?fit=600%2C684&ssl=1" loading="lazy" class="card-img-top" alt="Kids">
+                        <div class="card-body text-center">
+    <h5>Kids' Wear</h5>
+    <p class="text-muted">₦30k – ₦80k (Depending on design)</p>
+
+    <a href="https://wa.me/2347089743895?text=Hello%2C%20I%20want%20to%20book%20a%20fashion%20consultation%20for%20this%20outfit"
+   class="btn btn-dark btn-sm">
+   Book Consultation
+</a>
+</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
                     <div class="card service-card h-100 shadow-sm">
                         <img src="https://ae01.alicdn.com/kf/S358b6a637b134a648219f26448d9ea91w.jpg" loading="lazy" class="card-img-top" alt="Kids">
                         <div class="card-body text-center">
-                            <h5>Kids &amp; Teens</h5>
-                            <p class="text-muted">Stylish clothing for the little ones</p>
-                            <a href="https://wa.me/2347089743895?text=Hello,%20I%20want%20Classic%20for%20my%20kids"
-class="btn btn-warning btn-sm">Book a Consultation</a>
-                        </div>
+    <h5>Women's Wear</h5>
+    <p class="text-muted">₦30k – ₦80k (Depending on design)</p>
+
+    <a href="https://wa.me/2347089743895?text=Hello%2C%20I%20want%20to%20book%20a%20fashion%20consultation%20for%20this%20outfit"
+   class="btn btn-dark btn-sm">
+   Book Consultation
+</a>
+</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card service-card h-100 shadow-sm">
+                        <img src="https://ae01.alicdn.com/kf/S358b6a637b134a648219f26448d9ea91w.jpg" loading="lazy" class="card-img-top" alt="Fabrics">
+                        <div class="card-body text-center">
+    <h5>Fabrics</h5>
+    <p class="text-muted">₦30k – ₦80k (Depending on design)</p>
+
+    <a href="https://wa.me/2347089743895?text=Hello%2C%20I%20want%20to%20book%20a%20fashion%20consultation%20for%20this%20outfit"
+   class="btn btn-dark btn-sm">
+   Book Consultation
+</a>
+</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- SUMMER SALE -->
+    <section class="sale-banner text-white d-flex align-items-center">
+    <div class="container text-center">
+        <h2 class="fw-bold display-5">Summer Sale</h2>
+        <p class="lead">Up to 40% Off Selected Items</p>
+        <a href="#collections" class="btn btn-warning btn-lg">
+            Shop Now
+        </a>
+    </div>
+</section>
+
     <!-- Why Choose Us -->
-    <section id="whyus" class="py-5 bg-light fade-in">
-        <div class="container">
-            <h2 class="text-center display-5 fw-bold section-title">Why Choose LuxeThread</h2>
-            <p class="text-center section-subtitle">Discover what makes us the best choice for your fashion needs</p>
-            <div class="row g-4 text-center">
-                <div class="col-md-4"><div class="p-4"><i class="fas fa-star fa-3x text-warning mb-3"></i><h5>Latest Trends</h5></div></div>
-                <div class="col-md-4"><div class="p-4"><i class="fas fa-truck fa-3x text-success mb-3"></i><h5>Fast Delivery</h5></div></div>
-                <div class="col-md-4"><div class="p-4"><i class="fas fa-shield-alt fa-3x text-primary mb-3"></i><h5>Premium Quality</h5></div></div>
+    <section id="whyus" class="py-5 bg-light text-center">
+    <div class="container">
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <i class="fas fa-fire fa-2x mb-3" style="color: var(--primary);"></i>
+                <h5>Latest Designs</h5>
+                <p>Stay ahead of the game</p>
             </div>
+
+            <div class="col-md-4">
+                <i class="fas fa-gem fa-2x mb-3" style="color: var(--primary);"></i>
+                <h5>Premium Quality</h5>
+                <p>Only the best materials</p>
+            </div>
+
+            <div class="col-md-4">
+                <i class="fas fa-truck fa-2x mb-3" style="color: var(--primary);"></i>
+                <h5>Fast Delivery</h5>
+                <p>Nationwide shipping</p>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
+
+    <!-- CTA -->
+     <section class="text-center text-white cta-section" style="background: linear-gradient(45deg, #111, #333);">
+    <div class="container">
+        <h2 class="fw-bold mb-3">Upgrade Your Wardrobe Today</h2>
+        <p class="mb-4">Style that makes you stand out effortlessly</p>
+
+        <a href="https://wa.me/2347089743895"
+           class="btn btn-warning btn-lg px-5">
+           Order on WhatsApp
+        </a>
+    </div>
+</section>
 
     <!-- Gallery -->
     <section id="gallery" class="py-5 fade-in">
@@ -803,6 +1122,10 @@ class="btn btn-warning btn-sm">Book a Consultation</a>
         <h2 class="text-center display-5 fw-bold section-title">
             What Our Clients Say
         </h2>
+        <div class="mb-2">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" 
+         style="height:20px;">
+</div>
 
         <p class="text-muted mb-3">
             Trusted by 100+ happy beauty clients
@@ -826,6 +1149,9 @@ class="btn btn-warning btn-sm">Book a Consultation</a>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
             </div>
+            <p style="font-size: 0.8rem; color: gray;">
+    Verified Google Review
+</p>
 
             <h6 class="fw-bold mb-0">— Emily Carter</h6>
 
@@ -896,12 +1222,6 @@ class="btn btn-warning btn-sm">Book a Consultation</a>
                     <button type="submit" class="btn btn-dark w-100">Book Consultation</button>
 
                 </form>
-                <div class="text-center mt-5">
-                        <p class="mb-2">Or reach me directly:</p>
-                        <a href="https://wa.me/2347089743895?text=Hello%2C%20I%27m%20interested%20in%20your%20fashion%20collections.%20My%20name%20is..." target="_blank" class="btn btn-success btn-lg me-3">
-                            <i class="fab fa-whatsapp"></i> WhatsApp
-                        </a>
-                    </div>
 
             </div>
         </div>
@@ -1129,29 +1449,19 @@ window.addEventListener('scroll', () => {
 
 const reviews = [
     {
-        text: "Amazing experience! My hair has never looked better.",
-        name: "— Sarah Johnson",
-        img: "https://i.pravatar.cc/80?img=1"
+        text: "Absolutely love the outfits. The quality is top-notch!",
+        name: "— Chioma Eze",
+        img: "https://i.pravatar.cc/80?img=5"
     },
     {
-        text: "Best salon I've ever been to. Highly recommend!",
-        name: "— Michael Lee",
+        text: "They styled me perfectly for my event. Highly recommend!",
+        name: "— Aisha Bello",
         img: "https://i.pravatar.cc/80?img=2"
     },
     {
-        text: "Great service and beautiful location. Will come again!",
-        name: "— Ada Obi",
+        text: "Fast delivery and beautiful designs. I’ll definitely order again.",
+        name: "— Daniel Okafor",
         img: "https://i.pravatar.cc/80?img=3"
-    },
-    {
-        text: "Professional staff and relaxing atmosphere. Loved it!",
-        name: "— David Smith",
-        img: "https://i.pravatar.cc/80?img=4"
-    },
-    {
-        text: "Exceptional results and outstanding customer service!",
-        name: "— Chioma Eze",
-        img: "https://i.pravatar.cc/80?img=5"
     }
 ];
 
@@ -1171,21 +1481,9 @@ setInterval(() => {
 </script>
 
 <script>
-    // backto top button
-    let backToTopBtn = document.getElementById("backToTopBtn");
-
-window.onscroll = function() {
-    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-        backToTopBtn.style.display = "block";
-    } else {
-        backToTopBtn.style.display = "none";
-    }
-};
-
-backToTopBtn.addEventListener("click", function() {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+document.querySelectorAll('.add-to-cart').forEach(btn => {
+    btn.addEventListener('click', () => {
+        alert("Item added to cart 🛒");
     });
 });
 </script>
@@ -1200,9 +1498,7 @@ backToTopBtn.addEventListener("click", function() {
     </div>
     
     
-    <button id="scrollTopBtn">
-    ↑
-</button>
+
 
 </body>
 </html>
